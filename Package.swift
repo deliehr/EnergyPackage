@@ -18,8 +18,11 @@ let package = Package(
 		.package(url: "https://github.com/influxdata/influxdb-client-swift", exact: .init(1, 6, 0))
 	],
     targets: [
-        .target(
-            name: "EnergyPackage"),
+        .target(name: "EnergyPackage", dependencies: [
+			.product(name: "InfluxDBSwift", package: "influxdb-client-swift"),
+			.product(name: "InfluxDBSwiftApis", package: "influxdb-client-swift"),
+			.product(name: "MQTTNIO", package: "mqtt-nio"),
+		]),
         .testTarget(
             name: "EnergyPackageTests",
             dependencies: ["EnergyPackage"]),

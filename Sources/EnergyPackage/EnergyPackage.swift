@@ -1,2 +1,3 @@
-// The Swift Programming Language
-// https://docs.swift.org/swift-book
+public final class Common {
+	public static var pv1wattMax: Int = 0
+}
