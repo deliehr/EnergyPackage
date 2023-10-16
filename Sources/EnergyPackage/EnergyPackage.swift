@@ -1,5 +1,5 @@
 //
-//  Common.swift
+//  EnergyCommon.swift
 //
 //
 //  Created by Dominik Liehr on 15.10.23.

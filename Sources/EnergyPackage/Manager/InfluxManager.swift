@@ -76,8 +76,8 @@ private extension InfluxManager {
 			sortedAndReduced[i].index = UInt(i)
 		}
 
-		if let maxChartValue, maxChartValue.rawValue > Common.pv1wattMax {
-			Common.pv1wattMax = maxChartValue.rawValue
+		if let maxChartValue, maxChartValue.rawValue > EnergyCommon.pv1wattMax {
+			EnergyCommon.pv1wattMax = maxChartValue.rawValue
 		}
 
 		return sortedAndReduced
