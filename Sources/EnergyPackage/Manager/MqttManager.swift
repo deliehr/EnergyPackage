@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  MqttManager.swift
 //  
 //
 //  Created by Dominik Liehr on 13.10.23.
@@ -58,15 +58,19 @@ public final class MqttManager: ObservableObject {
 			}
 			.store(in: &subscriptions)
 	}
+}
 
-	public func connect() async throws {
+// MARK: - Public
+
+public extension MqttManager {
+	func connect() async throws {
 		self.isConnected = false
 		self.isSubscribed = false
 
 		try await client.connect()
 	}
 
-	public func disconnect() async throws {
+	func disconnect() async throws {
 		try await unsubscribe()
 		try await client.disconnect()
 	}
@@ -78,13 +82,18 @@ private extension MqttManager {
 	func subscribe() async throws {
 		let result = (try await self.client.subscribe(to: configuration.topic)).result
 
-		self.isSubscribed = result == .success(.atMostOnce) || result == .success(.atLeastOnce) || result == .success(.exactlyOnce)
+		self.isSubscribed = {
+			if case .success(_) = result {
+				return true
+			}
+			return false
+		}()
 	}
 
 	func unsubscribe() async throws {
 		let result = (try await self.client.unsubscribe(from: configuration.topic)).result
 
-		self.isSubscribed = !(result == .success)
+		self.isSubscribed = result != .success
 	}
 
 	func handle(message: MQTTMessage) {
@@ -98,7 +107,7 @@ private extension MqttManager {
 		self.inverterMessage = inverterMessage
 
 		if inverterMessage.values.pv1watt > Common.pv1wattMax {
-			Common.pv1wattMax = inverterMessage.values.pv1watt
+			Common.pv1wattMax = Int64(inverterMessage.values.pv1watt)
 		}
 	}
 }

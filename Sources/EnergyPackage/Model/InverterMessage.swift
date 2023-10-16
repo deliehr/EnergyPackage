@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  InverterMessage.swift
 //  
 //
 //  Created by Dominik Liehr on 15.10.23.
@@ -8,45 +8,45 @@
 import Foundation
 
 public struct InverterMessage: Codable {
-	var device: String
-	var time: String
-	var buffered: String
-	var values: Values
+	public var device: String
+	public var time: String
+	public var buffered: String
+	public var values: Values
 }
 
 public extension InverterMessage {
 	struct Values: Codable {
-		var datalogserial: String
-		var pvserial: String
-		var pvstatus: Int
-		var pvpowerin: Int
-		var pv1voltage: Int
-		var pv1current: Int
-		var pv1watt: Int
-		var pv2voltage: Int
-		var pv2current: Int
-		var pv2watt: Int
-		var pvpowerout: Int
-		var pvfrequentie: Int
-		var pvgridvoltage: Int
-		var pvgridcurrent: Int
-		var pvgridpower: Int
-		var pvgridvoltage2: Int
-		var pvgridcurrent2: Int
-		var pvgridpower2: Int
-		var pvgridvoltage3: Int
-		var pvgridcurrent3: Int
-		var pvgridpower3: Int
-		var totworktime: Int
-		var pvenergytoday: Int
-		var pvenergytotal: Int
-		var epvtotal: Int
-		var epv1today: Int
-		var epv1total: Int
-		var epv2today: Int
-		var epv2total: Int
-		var pvtemperature: Int
-		var pvipmtemperature: Int
+		public var datalogserial: String
+		public var pvserial: String
+		public var pvstatus: Int
+		public var pvpowerin: Int
+		public var pv1voltage: Int
+		public var pv1current: Int
+		public var pv1watt: Int
+		public var pv2voltage: Int
+		public var pv2current: Int
+		public var pv2watt: Int
+		public var pvpowerout: Int
+		public var pvfrequentie: Int
+		public var pvgridvoltage: Int
+		public var pvgridcurrent: Int
+		public var pvgridpower: Int
+		public var pvgridvoltage2: Int
+		public var pvgridcurrent2: Int
+		public var pvgridpower2: Int
+		public var pvgridvoltage3: Int
+		public var pvgridcurrent3: Int
+		public var pvgridpower3: Int
+		public var totworktime: Int
+		public var pvenergytoday: Int
+		public var pvenergytotal: Int
+		public var epvtotal: Int
+		public var epv1today: Int
+		public var epv1total: Int
+		public var epv2today: Int
+		public var epv2total: Int
+		public var pvtemperature: Int
+		public var pvipmtemperature: Int
 	}
 }
 
