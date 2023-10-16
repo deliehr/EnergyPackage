@@ -64,4 +64,12 @@ public extension InverterMessage {
 
 		return DateFormatter(format: "HH:mm").string(from: date)
 	}
+
+	var pv1wattString: String { String(Double(values.pv1watt) / 10.0) }
+
+	var epv1todayString: String { String(Double(values.epv1today) / 10.0) }
+
+	var pv1voltageString: String { String(Double(values.pv1voltage) / 10.0) }
+
+	var pv1currentString: String { String(Double(values.pv1current) / 10.0) }
 }
