@@ -70,9 +70,21 @@ public extension MqttManager {
 		try await client.connect()
 	}
 
+	func connect() {
+		Task {
+			try await connect()
+		}
+	}
+
 	func disconnect() async throws {
 		try await unsubscribe()
 		try await client.disconnect()
+	}
+
+	func disconnect() {
+		Task {
+			try await disconnect()
+		}
 	}
 }
 
