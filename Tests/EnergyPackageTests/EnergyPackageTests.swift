@@ -1,7 +1,7 @@
 import XCTest
-@testable import EnergyPackage
+@testable import SolarPowerKit
 
-final class EnergyPackageTests: XCTestCase {
+final class SolarPowerKitTests: XCTestCase {
     func testExample() throws {
         // XCTest Documentation
         // https://developer.apple.com/documentation/xctest

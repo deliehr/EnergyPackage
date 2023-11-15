@@ -118,8 +118,8 @@ private extension MqttManager {
 
 		self.inverterMessage = inverterMessage
 
-		if inverterMessage.values.pv1watt > EnergyCommon.pv1wattMax {
-			EnergyCommon.pv1wattMax = Int64(inverterMessage.values.pv1watt)
+		if inverterMessage.values.pv1watt > pv1wattMax {
+			pv1wattMax = Int64(inverterMessage.values.pv1watt)
 		}
 	}
 }

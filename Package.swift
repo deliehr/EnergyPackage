@@ -4,27 +4,27 @@
 import PackageDescription
 
 let package = Package(
-    name: "EnergyPackage",
+    name: "SolarPowerKit",
 	platforms: [
 		.macOS(.v12), .iOS(.v15)
 	],
     products: [
 		.library(
-            name: "EnergyPackage",
-            targets: ["EnergyPackage"]),
+            name: "SolarPowerKit",
+            targets: ["SolarPowerKit"]),
     ],
 	dependencies: [
 		.package(url: "https://github.com/sroebert/mqtt-nio", exact: .init(2, 8, 1)),
 		.package(url: "https://github.com/influxdata/influxdb-client-swift", exact: .init(1, 6, 0))
 	],
     targets: [
-        .target(name: "EnergyPackage", dependencies: [
+        .target(name: "SolarPowerKit", dependencies: [
 			.product(name: "InfluxDBSwift", package: "influxdb-client-swift"),
 			.product(name: "InfluxDBSwiftApis", package: "influxdb-client-swift"),
 			.product(name: "MQTTNIO", package: "mqtt-nio"),
 		]),
         .testTarget(
-            name: "EnergyPackageTests",
-            dependencies: ["EnergyPackage"]),
+            name: "SolarPowerKitTests",
+            dependencies: ["SolarPowerKit"]),
     ]
 )
